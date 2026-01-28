@@ -1,0 +1,5 @@
+Jelszó: LightMetals26
+Megosztások mappa: /home/pi/Public/Megosztasok
+DHCP: 192.168.10.50-100 (El kell indítani manuálisan)
+Backup: Minden héten, Vasárnap 02:00kor.
+Cups.
