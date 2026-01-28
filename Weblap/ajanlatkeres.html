@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajánlatkérés – Lightmetals Kft.</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="nav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo simple.png" alt="Lightmetals Kft. logó">
+            </a>
+        </div>
+        <nav class="menu">
+            <a href="rolunk.html">Rólunk</a>
+            <a href="szolgaltatasok.html">Szolgáltatásaink</a>
+            <a href="index.html#kapcsolat">Kapcsolat</a>
+            <a href="#" id="searchToggle">Keresés</a>
+        </nav>
+    </div>
+
+    <div class="search-bar" id="searchBar">
+        <input type="text" placeholder="Keresés az oldalon…">
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-slider">
+        <div class="hero-slide active" style="background-image:url('img/carousel1.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('img/carousel2.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('img/carousel3.jpg')"></div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1>Ajánlatkérés</h1>
+        <p>Válassza ki, milyen szolgáltatásban segíthetünk</p>
+    </div>
+
+    <button class="hero-arrow left" id="heroPrev">&#10094;</button>
+    <button class="hero-arrow right" id="heroNext">&#10095;</button>
+</section>
+
+
+<main class="container">
+
+    <section class="section services">
+        <div class="service-box">
+            <h3>CNC megmunkálás</h3>
+            <p>Rajz vagy modell alapján történő gyártás.</p>
+            <button class="cta-btn" onclick="location.href='rendeles.html'">
+                Ezt szeretném
+            </button>
+        </div>
+
+        <div class="service-box">
+            <h3>Egyedi alkatrész</h3>
+            <p>Kis darabszámú, speciális igényekre szabva.</p>
+            <button class="cta-btn" onclick="location.href='rendeles.html'">
+                Ezt szeretném
+            </button>
+        </div>
+
+        <div class="service-box">
+            <h3>Prototípus fejlesztés</h3>
+            <p>Gyors iteráció és mérnöki támogatás.</p>
+            <button class="cta-btn" onclick="location.href='rendeles.html'">
+                Ezt szeretném
+            </button>
+        </div>
+
+        <div class="service-box">
+            <h3>Mérnöki konzultáció</h3>
+            <p>Gyárthatóság, költségoptimalizálás.</p>
+            <button class="cta-btn" onclick="location.href='rendeles.html'">
+                Ezt szeretném
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <img src="img/logo.png" alt="Lightmetals Kft. logó" class="footer-logo">
+        <span>© 2026 Lightmetals Kft. Minden jog fenntartva.</span>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
