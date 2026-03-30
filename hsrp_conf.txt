@@ -24,3 +24,4 @@ standby 1 priority 110
 standby 1 preempt
 
 rossz oldala a routernek smh
+atp kill me
