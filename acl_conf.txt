@@ -1,7 +1,7 @@
 acl:
 R_factory_config:
 	ip access-list extended adminssh
-	permit tcp 192.168.50.0 0.0.0.255 any eq 22
+	permit tcp 192.168.40.0 0.0.0.255 any eq 22
 	deny tcp any any eq 22
 	permit ip any any
 	exit
@@ -10,7 +10,7 @@ R_factory_config:
 	
 R_main_config:
 	ip access-list extended adminssh
-	permit tcp 192.168.50.0 0.0.0.255 any eq 22
+	permit tcp 192.168.40.0 0.0.0.255 any eq 22
 	deny tcp any any eq 22
 	permit ip any any
 	exit
@@ -20,25 +20,17 @@ R_main_config:
 
 R_backup_config:
 	ip access-list extended adminssh
-	permit tcp 192.168.50.0 0.0.0.255 any eq 22
+	permit tcp 192.168.40.0 0.0.0.255 any eq 22
 	deny tcp any any eq 22
 	permit ip any any
 	exit
 	line vty 0 15
 	access-class 10 in
 
-R_server_config:
-	ip access-list extended adminssh
-	permit tcp 192.168.50.0 0.0.0.255 any eq 22
-	deny tcp any any eq 22
-	permit ip any any
-	exit
-	line vty 0 15
-	access-class 10 in
 
 Sw_main_config:
 	ip access-list extended adminssh
-	permit tcp 192.168.50.0 0.0.0.255 any eq 22
+	permit tcp 192.168.40.0 0.0.0.255 any eq 22
 	deny tcp any any eq 22
 	permit ip any any
 	exit
@@ -47,7 +39,7 @@ Sw_main_config:
 
 Sw_sales_config:
 	ip access-list extended adminssh
-	permit tcp 192.168.50.0 0.0.0.255 any eq 22
+	permit tcp 192.168.40.0 0.0.0.255 any eq 22
 	deny tcp any any eq 22
 	permit ip any any
 	exit
@@ -56,7 +48,7 @@ Sw_sales_config:
 
 Sw_factory_config:
 	ip access-list extended adminssh
-	permit tcp 192.168.50.0 0.0.0.255 any eq 22
+	permit tcp 192.168.40.0 0.0.0.255 any eq 22
 	deny tcp any any eq 22
 	permit ip any any
 	exit

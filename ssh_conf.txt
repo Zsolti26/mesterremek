@@ -1,6 +1,7 @@
 
 ip domain name lightmetals
-crypto key gen rsa
+crypto key gen rsa 
+1024
 
 ena pass lmadmin26
 username Admin priv 15 pass Adminlm26
@@ -8,4 +9,4 @@ line vty 0 15
 tr in ssh
 login local
 exit
-
+ip ssh ver 2
