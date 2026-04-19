@@ -1,5 +1,7 @@
 port-sec:
 
-int ran fa0/1-22
+int ran fa0/1-24
+sw po
 switchport port-sec mac sticky
-sw po mac max 1
+sw po max 1
+sw po vio shut

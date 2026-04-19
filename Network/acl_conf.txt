@@ -7,6 +7,13 @@ R_factory_config:
 	exit
 	line vty 0 15
 	access-class 10 in
+	ip access-list 1 permit any any
+pat:
+ip nat inside source list 1 int g 0/0/0 
+int g0/0 
+ip nat inside
+int g0/0/0
+ip nat outside
 	
 R_main_config:
 	ip access-list extended adminssh

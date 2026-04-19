@@ -1,0 +1,10 @@
+ntp és syslog
+
+ntp server 10.10.10.11
+ntp update-calendar
+logging on
+logging host 10.10.10.11
+service timestamps log datetime msec
+
+debug:
+sh logging
