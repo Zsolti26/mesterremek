@@ -1,0 +1,32 @@
+Enable:
+Biztosítjuk hogy csak a megfelelő személyek férhessenek hozzá
+a hálózati eszközökhöz.
+
+Vlanok:
+Virtuális LAN-ok segítségével szegmentáljuk a hálózatot ezzel
+csökken a hálózat terheltsége és segíti a hálózatbiztonság megvalósítását.
+
+BGP:
+A BGP (Border Gateway Protocol) az internet „globális útvonaltervezője”. 
+Ez a protokoll kapcsolja össze az internetet alkotó több tízezer önálló hálózatot
+(Autonóm Rendszer - AS).
+Fő feladatai a hálózatok közötti összeköttetés, lehetővé teszi, hogy a különböző szolgáltatók (pl. Telekom, Google, AT&T) megosszák egymással, milyen IP-címek érhetőek el náluk. Az útvonalválasztás meghatározza a leghatékonyabb utat az adatok számára a hálózatok szövevényében. Nem csak a sebességet, hanem üzleti és biztonsági szabályokat is figyelembe véve, valamint hurokmentesség úgynevezett path-vector protokollként nyilvántartja a megtett állomásokat, így az adatok nem keringenek végtelen körökben.
+
+OSPF
+Az OSPF (OpenShortestPathFirst) egy dinamikus forgalom irányító protokoll amely area(-k)ba taglalja
+a routerek csoportjait. Ezzel a protokollal oldjuk meg a forgalomirányítást a(z) R_main, R_backup és 
+R_BuildingNetwork routerek között. Ehhez még redisztribúcióval hozzá adjuk a BGP-vel szerzett címeket a 
+címzési tábláikhoz ezzel megvalósítva a kommunikciót az "Internet" felé.
+
+HSRP:
+A HSRP (Hot Standby Router Protocol) egy Cisco-specifikus redundancia-protokoll, amelynek elsődleges célja az alapértelmezett átjáró folyamatos biztosítása a hálózati kliensek számára, kiküszöbölve az egypontos meghibásodás (single point of failure) kockázatát. A technológia alapja, hogy több fizikai útválasztót egyetlen logikai egységbe fog össze, amely a kliensek felé egy közös, virtuális átjáróként jelenik meg. Ebben a konkrét konfigurációban ez a virtuális IP-cím a 192.168.[vlan szám].3 formátumot követi, így a végponti eszközöknek ezt a címet kell beállítaniuk alapértelmezett gateway-ként.
+
+A csoporton belül az eszközök különböző szerepköröket töltenek be a prioritási értékeik alapján. Az R_main útválasztó, amely 110-es prioritással rendelkezik, magasabb értéke miatt elnyeri az Active (aktív) státuszt. Ez azt jelenti, hogy normál üzemi körülmények között ez az eszköz felelős a virtuális IP-címre érkező forgalom tényleges továbbításáért. Ezzel szemben az R_backup útválasztó a 100-as prioritásával (ami az alapértelmezett érték) Standby (készenléti) módba kerül.
+
+Dhcpv6:
+
+
+
+
+
+
