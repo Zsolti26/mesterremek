@@ -6,7 +6,7 @@ R_factory_config:
 	permit ip any any
 	exit
 	line vty 0 15
-	access-class 10 in
+	access-class adminssh in
 	ip access-list 1 permit any any
 pat:
 ip nat inside source list 1 int g 0/0/0 
