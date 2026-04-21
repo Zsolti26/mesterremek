@@ -1,0 +1,201 @@
+version 15.0
+service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Sw_main
+!
+enable password lmadmin26
+!
+ip ssh version 2
+ip domain-name lightmetals
+!
+username Admin privilege 15 password 0 Adminlm26
+!
+!
+ip dhcp snooping vlan 20
+ip dhcp snooping
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface Port-channel1
+ switchport trunk native vlan 90
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport trunk native vlan 90
+ switchport mode trunk
+ channel-group 1 mode desirable
+!
+interface FastEthernet0/2
+ switchport trunk native vlan 90
+ switchport mode trunk
+ channel-group 1 mode desirable
+!
+interface FastEthernet0/3
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 0040.0BA6.08A7
+!
+interface FastEthernet0/4
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 0060.47D7.7C3B
+!
+interface FastEthernet0/5
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 0001.C7D7.A273
+!
+interface FastEthernet0/6
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 0001.9678.A551
+!
+interface FastEthernet0/7
+ switchport access vlan 40
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 0060.701E.D12E
+!
+interface FastEthernet0/8
+ switchport access vlan 20
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/9
+ switchport access vlan 50
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 0009.7C98.D3E4
+!
+interface FastEthernet0/10
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 0007.ECCA.6632
+!
+interface FastEthernet0/11
+ switchport access vlan 101
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/12
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/13
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/14
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/15
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/16
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/17
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/18
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/19
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/20
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/21
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/22
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/23
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/24
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface GigabitEthernet0/1
+ ip dhcp snooping trust
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+ switchport access vlan 50
+ ip dhcp snooping trust
+ switchport mode access
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ ip address 192.168.10.254 255.255.255.0
+!
+interface Vlan20
+ ip address 192.168.20.254 255.255.255.0
+!
+interface Vlan30
+ ip address 192.168.30.254 255.255.255.0
+!
+interface Vlan40
+ ip address 192.168.40.254 255.255.255.0
+!
+interface Vlan50
+ ip address 192.168.50.254 255.255.255.0
+!
+interface Vlan101
+ no ip address
+ shutdown
+!
+ip default-gateway 192.168.10.3
+!
+logging 10.10.10.11
+!
+ip access-list extended adminssh
+ permit tcp 192.168.40.0 0.0.0.255 any eq 22
+ deny tcp any any eq 22
+ permit ip any any
+line con 0
+!
+line vty 0 4
+ access-class adminssh in
+ login local
+ transport input ssh
+line vty 5 15
+ access-class adminssh in
+ login local
+ transport input ssh
+!
+ntp server 10.10.10.11
+!
+end
+

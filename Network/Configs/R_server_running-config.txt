@@ -1,0 +1,65 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R_server
+!
+no ip cef
+ipv6 unicast-routing
+!
+no ipv6 cef
+!
+license udi pid CISCO2911/K9 sn FTX1524DJL4-
+!
+spanning-tree mode pvst
+!
+!
+interface GigabitEthernet0/0
+ ip address 10.10.10.1 255.255.255.240
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/0/0
+ ip address 100.10.10.1 255.255.255.0
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router bgp 100
+ bgp log-neighbor-changes
+ no synchronization
+ neighbor 100.10.10.2 remote-as 200
+ network 100.10.10.0 mask 255.255.255.0
+ network 10.10.10.0 mask 255.255.255.240
+ redistribute connected 
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 100.10.10.2 
+!
+ip flow-export version 9
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+end
+

@@ -1,0 +1,176 @@
+!
+version 15.0
+service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Sw_sales
+!
+enable password lmadmin26
+!
+ip domain-name lightmetals
+!
+username Admin privilege 15 password 0 Adminlm26
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface Port-channel1
+ switchport trunk native vlan 90
+ switchport mode trunk
+!
+interface FastEthernet0/1
+ switchport trunk native vlan 90
+ switchport mode trunk
+ channel-group 1 mode desirable
+!
+interface FastEthernet0/2
+ switchport trunk native vlan 90
+ switchport mode trunk
+ channel-group 1 mode desirable
+!
+interface FastEthernet0/3
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 00D0.D3CB.440A
+!
+interface FastEthernet0/4
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 000C.8595.E839
+!
+interface FastEthernet0/5
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+ switchport port-security mac-address sticky 000D.BD46.8A43
+!
+interface FastEthernet0/6
+ switchport access vlan 101
+ switchport mode access
+ switchport port-security
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/7
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/8
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/9
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/10
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/11
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/12
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/13
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/14
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/15
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/16
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/17
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/18
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/19
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/20
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/21
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/22
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/23
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface FastEthernet0/24
+ switchport access vlan 101
+ switchport port-security mac-address sticky 
+!
+interface GigabitEthernet0/1
+ switchport access vlan 10
+ switchport mode access
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ ip address 192.168.10.253 255.255.255.0
+!
+interface Vlan20
+ ip address 192.168.20.253 255.255.255.0
+!
+interface Vlan30
+ ip address 192.168.30.253 255.255.255.0
+!
+interface Vlan40
+ ip address 192.168.40.253 255.255.255.0
+!
+interface Vlan50
+ ip address 192.168.50.253 255.255.255.0
+!
+interface Vlan101
+ no ip address
+ shutdown
+!
+ip default-gateway 192.168.10.3
+!
+logging 10.10.10.11
+!
+line con 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+ntp server 10.10.10.11
+!
+end
+

@@ -1,0 +1,75 @@
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Building_Network
+!
+!
+spanning-tree mode pvst
+!
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/0/0
+ ip address 100.40.40.1 255.255.255.0
+!
+interface GigabitEthernet0/1/0
+ ip address 100.30.30.2 255.255.255.0
+!
+interface GigabitEthernet0/2/0
+ ip address 100.50.50.1 255.255.255.0
+!
+interface GigabitEthernet0/3/0
+ ip address 100.20.20.1 255.255.255.0
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ router-id 2.2.2.4
+ log-adjacency-changes
+ redistribute bgp 400 
+ redistribute static 
+ redistribute connected 
+ network 100.40.40.0 0.0.0.255 area 0
+ network 100.50.50.0 0.0.0.255 area 0
+ default-information originate
+!
+router bgp 400
+ bgp log-neighbor-changes
+ no synchronization
+ neighbor 100.30.30.1 remote-as 200
+ neighbor 100.20.20.2 remote-as 300
+ network 100.30.30.0 mask 255.255.255.0
+ network 100.20.20.0 mask 255.255.255.0
+ redistribute ospf 1 
+ redistribute connected 
+!
+ip flow-export version 9
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+end
+
